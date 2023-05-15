@@ -1,0 +1,601 @@
+* {
+  margin: 0px;
+  box-sizing: border-box;
+  line-height: 1;
+  font-family: "fontello";
+}
+
+section > .container {
+  /* width:/* 1170px 100vw; */
+  margin: auto;
+  display: block;
+  /* 
+  padding: 30px 50px; */
+}
+.section-title {
+  font-family: "fontello";
+  font-size: 24px;
+  font-weight: normal;
+  color: #343a40;
+  margin-bottom: 20px;
+}
+
+i {
+  color: #4dabf7;
+}
+.bg-grey {
+  background: #f7f7f7;
+}
+
+/* banner */
+#banner {
+  position: relative;
+}
+.bg {
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  position: absolute;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+/* tạo nền tối màu cho img bằng cách đặt .bg có kích thước bằng banner và đặt position:absolute*/
+.img {
+  display: block; /*xóa khoảng trống dưới ảnh, các khoảng trống được tạo ra để điều chỉnh các phần tử inline*/
+  width: 100%;
+  height: 450px;
+}
+.banner-tittle {
+  color: #e9ecef;
+  text-align: center;
+
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  /* banner-tittle ở vị trí cách top của #banner 1 khoảng 1/4 chiều cao của #banner và cách left của #banner 1 khoảng 1/2 chiều rộng của #banner */
+  transform: translate(-50%, -50%);
+  /* dịch chuyển banner-tittle lên trên 1 khoảng bằng 1/2 chiều cao của banner-tittle và dịch sang trái 1 khoảng bằng 1/2 chiều rộng của banner-tittle */
+}
+.banner-tittle h1 {
+  font-size: 42px;
+  font-weight: normal;
+}
+.banner-tittle span {
+  font-size: 12px;
+  color: #ced4da;
+}
+
+/* phần banner được giữ nguyên ở cả 3 màn hình nên thực hiện chỉnh sửa bằng media query từ phần navbar */
+/* từ navbar trở xuống -laptop */
+@media screen and (min-width: 960px) {
+  /* nav start*/
+  #nav-bar {
+    padding: 0;
+  } /*thêm padding: 0 để xóa khoảng trống sinh ra do thêm lớp navbar bootstrap vào #nav-bar  - laptop*/
+  #nav-bar .container {
+    display: flex;
+    justify-content: center;
+    /* căn giữa theo trục chính cho navbar bằng flex*/
+  }
+
+  .navbar-nav {
+    height: 50px;
+    flex-direction: row !important;
+    /*ghi đè lên css bootstrap để navbar không hiển thị chiều dọc - laptop*/
+  }
+  .nav-item {
+    width: 110px;
+    height: 50px;
+    border-right: solid 1px #f1f3f5;
+    border-left: solid 1px #f1f3f5;
+    /* tạo border bên trái và bên phải cho mỗi nav-item */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* căn giữa theo trục chính và trục chéo cho thẻ a bằng flex */
+    font-size: 12px;
+  }
+  .nav-link:link,
+  .nav-link:visited {
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #343a40;
+    cursor: pointer;
+  }
+  .nav-link:hover,
+  .nav-link:active {
+    color: red;
+    font-weight: bold;
+  }
+  /* định dạng và tạo hiệu ứng cho thẻ a bằng các lớp ảo link, visited, hover, active*/
+  .sub-nav {
+    text-align: center;
+    width: 280px;
+    border-right: solid 1px #f1f3f5;
+    border-left: solid 1px #f1f3f5;
+    /* tạo border bên trái và bên phải cho .sub-nav */
+  }
+  .sub-nav h1 {
+    font-size: 24px;
+    font-weight: normal;
+    color: #343a40;
+    margin-bottom: 0;
+  }
+  .sub-nav span {
+    font-size: 12px;
+    color: #343a4087;
+  }
+  /* nav end */
+
+  /* about start*/
+  #about .container-ab {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    /* chia .container của #about làm 2 phần có độ rộng bằng nhau, mỗi phần bằng 1 nửa .container */
+  }
+  #target {
+    margin-top: 60px;
+    padding-right: 30px;
+    padding-left: 30px;
+  }
+
+  #target p {
+    font-size: 14px;
+    color: #495057;
+    line-height: 1.5;
+    /* chỉnh khoảng cách giữa các dòng cho phù hợp, tránh khó xem do quá gần nhau */
+  }
+  #personal-info {
+    background-color: #f1f3f5;
+    padding-left: 30px;
+    padding-top: 60px;
+    /* dùng padding-top để đảm bảo màu nền của #personal-info chiếm nửa bên phải của .container */
+  }
+
+  .info {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-left: 0;
+    /* tạo khoảng cách giữa các dòng như giới tính, ngày sinh,... */
+    font-size: 14px;
+    color: #495057;
+  }
+  .info li {
+    list-style: none;
+    /* xóa dấu chấm đầu thẻ li */
+  }
+  .info span {
+    font-weight: bold;
+    /* tạo font đậm cho các span như giới tính, ngày sinh,... */
+  }
+  .info-icon {
+    margin-top: 20px;
+    margin-bottom: 40px;
+    /* tạo khoảng cách trên dưới cho các icon trong personal-info */
+  }
+  /* about end */
+
+  /* job info start */
+  .container.job-info {
+    display: grid;
+    grid-template-columns: 290px 290px 290px;
+    grid-template-rows: 5fr 3fr;
+    justify-content: center;
+    /* chia 6 detail thành 3 cột có độ rộng 290px và 2 hàng có độ cao theo tỉ lệ 5:3 */
+    /* căn giữa theo trục dọc cho các grid item */
+    /* sử dụng bộ chọn .container.job-info có mức độ ưu tiên cao hơn section > .container */
+  }
+  .job-info-detail {
+    margin-top: 30px;
+    /* tạo khoảng cách với phần about phía trên giữa 2 hàng của grid*/
+    margin-right: 20px;
+    /* tạo khoảng cách giữa các cột của grid */
+    color: #495057;
+    padding: 40px 20px;
+    border: #dee2e6 solid 1px;
+    /* tạo border như thiết kế */
+  }
+  .job-info-tittle {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    /* chia job-info-tittle làm 2 phần với h1 chiếm 75% độ rộng và icon chiếm 25% độ rộng */
+    align-items: end;
+    /* h1 và icon đặt ở cuối grid theo chiều ngang */
+    margin-bottom: 40px;
+  }
+  .job-info-tittle h1 {
+    font-size: 24px;
+    font-weight: normal;
+  }
+  .job-info-tittle i {
+    color: #b4b5b6;
+    font-size: 32px;
+  }
+  .job-info-content {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  .job-info-content li {
+    margin-bottom: 30px;
+  }
+  .job-info-content li::marker {
+    color: #228be6;
+    font-size: 20px;
+    /* đặt màu và kích cỡ cho dấu chấm ở đầu mỗi list */
+  }
+  .job-info-content h2 {
+    font-size: 14px;
+  }
+  .time {
+    font-style: italic;
+    font-size: 12px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+  }
+  .time button {
+    font-size: 12px;
+    background-color: #228be6;
+    color: #d0ebff;
+    font-style: italic;
+    border-radius: 8px; /*tạo viền cong */
+    padding-left: 10px;
+    padding-right: 10px;
+    border: none; /* xóa border */
+  }
+  .job-info-content p {
+    line-height: 1.5;
+    font-size: 14px;
+  }
+  .hobby {
+    display: flex; /* các div trong class hobby được bố cục thành 1 hàng */
+    justify-content: space-between; /* làm cho khoảng cách giữa các div trong class hobby bằng nhau */
+  }
+  .hobby div {
+    display: flex;
+    flex-direction: column; /*chuyển trục chính thành chiều dọc, thẻ icon và thẻ p trong div được bố cục thành 2 hàng*/
+    gap: 10px; /*tạo khoảng cách giữa icon và p*/
+    align-items: center; /*căn giữa theo chiều ngang*/
+  }
+  .ic-border {
+    width: 40px;
+    height: 40px;
+    border: solid 1px #4dabf7;
+    border-radius: 50%;
+    /* tạo viền tròn bao xung quanh icon */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* đặt icon vào chính giữa đường viền tròn bằng flex*/
+  }
+  .hobby p {
+    font-size: 14px;
+  }
+  .content p {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  .level-on {
+    background: #199cdb;
+    display: inline-block;
+    height: 2px;
+    width: 45px;
+    margin-right: 10px;
+  }
+  .level-off {
+    background: #e9ecef;
+    display: inline-block;
+    height: 2px;
+    width: 45px;
+    margin-right: 10px;
+  }
+  /* job info end */
+
+  /* certificate start */
+  #certificate .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    /* chia container của #certificate thành 2 cột rộng bằng nhau và 3 hàng cao bằng nhau */
+    margin-top: 20px;
+    padding: 0 70px 20px 70px;
+    color: #495057;
+  }
+  #certificate .container .section-title {
+    grid-column: 1/-1; /*đặt tiêu đề chiếm hàng đầu tiên*/
+    margin-top: 40px;
+    margin-bottom: 40px;
+  }
+  .certificate {
+    display: flex; /*đặt phần nội dung ngang với img*/
+    gap: 20px; /*phần nội dung và img cách nhau 20px*/
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    border-bottom: solid 1px #d6c08d; /*tạo border dưới mỗi phần, hiển thị border dưới của hàng thứ 2 và 3 trong grid, phần border dưới của hàng thứ 3 sẽ xóa sau*/
+  }
+  .img-cer {
+    height: 80px;
+  }
+  .certificate h2 {
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: normal;
+    margin-bottom: 10px;
+  }
+  .certificate p {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  .certificate-img-02 {
+    border-left: solid 1px #d6c08d;
+    padding-left: 10px;
+    /* tạo 1 border bên trái cho phần tử img của grid cell ở cột 2 hàng 2 */
+    /* border cao bằng phần tử img, không cao bằng grid cell */
+  }
+  .certificate-03 {
+    border: none; /* xóa border dưới của hàng thứ 3 grid */
+  }
+  /* certificate end */
+
+  /* project start */
+  #project {
+    margin: 40px 70px;
+  }
+  .cover-project {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr; /*chia 3 project thành 3 cột độ rộng bằng nhau*/
+    column-gap: 20px; /*khoảng cách giữa các cột là 20px*/
+  }
+  .project {
+    display: flex;
+    flex-direction: column;
+    /* đặt thuộc tính flex:1 cho .project-content */
+  }
+  .img-project {
+    width: 100%; /* ảnh có độ rộng bằng .project, và bằng độ rộng của cột*/
+    display: block; /*xóa khoảng trống dưới ảnh, các khoảng trống được tạo ra để điều chỉnh các phần tử inline*/
+  }
+  .project-content {
+    border: #d6c08d 1px solid;
+    flex: 1;
+    /* dùng flex:1 để 3 .project-content có độ cao bằng nhau để border dưới cùng liền nhau */
+    /* border chung cho cả khối rồi border-bottom từng phần cần thiết nhìn đẹp hơn border tất cả rồi collapse */
+    /* sau sẽ xóa border-bottom cho phần td của tr dưới cùng  */
+  }
+  .project-name {
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: bold;
+
+    padding: 16px 0 16px 20px;
+    border-bottom: #d6c08d 0.25px solid;
+  }
+  .project-info {
+    font-size: 14px;
+    padding: 10px 0 10px 20px;
+    border-bottom: #d6c08d 0.25px solid;
+
+    display: flex;
+    gap: 10px; /*dùng flex để chỉnh khoảng cách giữa các button, icon và span*/
+    align-items: center;
+  }
+  .project-info button {
+    font-size: 12px;
+    background-color: #228be6;
+    color: #d0ebff;
+
+    border: none;
+    border-radius: 20px;
+    padding: 5px 15px;
+  }
+  .project-info i {
+    color: #495057;
+  }
+  .project-detail {
+    font-size: 14px;
+    color: #495057;
+  }
+  tr {
+    border-bottom: #d6c08d 0.25px solid;
+  }
+  td {
+    vertical-align: top; /*căn trên để có dòng chữ "Mô tả", "Nhiệm vụ", "Công nghệ" như ý*/
+    min-width: 80px; /*đặt độ rộng tối thiểu để có dòng chữ "Nhiệm vụ", "Công nghệ" như ý */
+    padding: 10px 5px;
+    border-bottom: #d6c08d 0.25px solid !important;
+    /*đặt border với mức độ ưu tiên cao hơn Bootstrap*/
+  }
+  .non-border-bottom {
+    border-bottom: none !important;
+    /* xóa border không cần thiết với mức độ ưu tiên cao hơn Bootstrap */
+  }
+  /* project end */
+
+  /* footer start */
+
+  #footer ul {
+    display: flex; /* hiển thị các list của thẻ ul trong 1 hàng */
+    justify-content: center; /* căn giữa các list của thẻ ul  */
+    gap: 20px; /* các list cách nhau 20px */
+
+    color: #adb5bd;
+    font-size: 14px;
+
+    height: 100px; /*đặt chiều cao mở rộng phần tử ul, qua đó có dược vùng background quanh các list có màu như ý */
+    margin-bottom: 80px;
+  }
+  #footer ul li {
+    display: flex;
+    align-items: center;
+    /* căn giữa cho các icon và dòng chữ theo trục chéo */
+  }
+  #footer i {
+    font-size: 250%; /*đặt font-size của icon theo đơn vị % */
+  }
+  #footer a:link,
+  #footer a:visited {
+    text-decoration: none;
+    color: #adb5bd;
+    cursor: pointer;
+  }
+  #footer a:hover,
+  #footer a:active {
+    color: red;
+    font-weight: bold;
+  }
+  /* footer end */
+}
+
+/*  */
+
+/*  */
+
+/*  */
+
+/*  */
+
+/*  */
+
+/*  */
+
+/*  */
+
+/*  */
+
+/*  */
+
+/*  */
+
+/* css cho digital-cv.html */
+@media screen and (min-width: 960px) {
+  * {
+    font-family: "Inter", sans-serif;
+    line-height: 1.5;
+    box-sizing: border-box;
+  }
+  body {
+    padding: 20px 25px;
+  }
+  .bg-gr {
+    background-color: #ebfbee;
+  }
+  .border-bottom {
+    border-bottom: 1px solid #495057;
+  }
+  .border-bottom-dash {
+    border-bottom: 1px dashed #495057;
+    margin-bottom: 1rem;
+    padding-left: 8px;
+  }
+  .border-bottom-dash p {
+    margin-bottom: 0.25rem;
+  }
+
+  .containers {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 4fr 3fr;
+    /* tạo grid 4 cột 2 hàng */
+    gap: 20px;
+    padding: 22px;
+    box-shadow: 0 0 10px #000;
+  }
+  .containers h1 {
+    font-weight: 700;
+    font-size: 24px !important;
+    color: blue;
+    border-bottom: 1px solid #495057;
+    padding-bottom: 1rem;
+  }
+  .containers h2 {
+    font-weight: 700 !important;
+    font-size: 16px !important;
+    color: #343a40;
+  }
+  .containes p {
+    font-size: 12px;
+    line-height: 1.7;
+  }
+  .cover {
+    padding: 1rem;
+  }
+  .containers .bi {
+    height: 28px;
+    width: 28px;
+    /* đặt kích cỡ các icon */
+  }
+  #Goals {
+    grid-column: 1/3; /*đặt vào 2 cell đầu của hàng 1 grid*/
+  }
+  .Goals-line {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+  }
+  .Goals-icon {
+    padding: 1rem 3rem;
+  }
+  #Scopes {
+    grid-column: 1/3; /*đặt vào 2 cell đầu của hàng 2 grid*/
+  }
+  .Scopes-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    /* đặt phần IN và OUT thành 2 cột bằng nhau */
+    padding: 0 0.5rem;
+  }
+  .Scopes-line {
+    padding-right: 1.25rem;
+  }
+  #Scopes h2 {
+    font-size: 18px !important;
+    margin-bottom: 2rem;
+  }
+  #Team {
+    grid-column: 3/4;
+    grid-row: 1/2;
+    /*đặt vào  cell thứ 3 của hàng 1 grid*/
+  }
+  .Team-line {
+    display: flex; /*icon và chữ ngang hàng nhau*/
+    padding-bottom: 0.25rem;
+  }
+  .Team-icon {
+    padding: 0.5rem 1rem;
+  }
+  #Primary {
+    grid-column: 3/4; /*đặt vào  cell thứ 3 của hàng 2 grid*/
+  }
+  .Primary-line {
+    display: flex; /*icon và chữ ngang hàng nhau*/
+  }
+  .Primary-icon {
+    padding: 0.5rem 1rem;
+  }
+  #Timeline {
+    grid-column: -2/-1;
+    grid-row: 1/-1;
+    /*đặt vào  cột cuối cùng của grid*/
+  }
+  .Timeline-line {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    /* .number-border chiếm 20% chiều rộng và phần còn lại chiếm 80% */
+  }
+  .number-border {
+    font-size: 14px;
+    color: #fff;
+    background-color: #b197fc;
+    /*  */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* căn giữa các số bằng flex */
+    border: 2px #000 solid;
+    border-radius: 50%;
+    height: 36px;
+    width: 36px;
+    /* tạo viền tròn */
+    min-width: 36px;
+    /* hình tròn không móp méo khi thay đổi kích thước screen */
+  }
+}
